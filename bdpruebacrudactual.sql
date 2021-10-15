@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2021 a las 07:03:13
+-- Tiempo de generación: 15-10-2021 a las 19:48:03
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.8
 
@@ -60,8 +60,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idproducto`, `nombre`, `grado`, `cantidad`, `idcategoria`) VALUES
-(4, 'manzana', 'b', 4, 3),
-(6, 'platano', 'a', 12, 3);
+(6, 'platano', 'a', 20, 3),
+(7, 'harina', 'a', 7, 5),
+(12, 'coco', 'a', 123, 3),
+(13, 'granada', 'c', 7, 3);
 
 --
 -- Índices para tablas volcadas
@@ -88,13 +90,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `idcategoria` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idcategoria` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idproducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
