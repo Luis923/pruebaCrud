@@ -56,7 +56,7 @@ class ProductoController{
         $data      = [$_nombre,$_grado,$_cantidad,$_categoria,$_idproducto];
         $accion    = $producto->modificar($data);
         if($accion){
-            header('location:'.urlsite."?page=productos&opcion=buscarProducto");
+            header('location:'.urlsite."?page=productos&opcion=form_buscarProducto");
         }
         else{
             header('location:'.urlsite."?page=productos&opcion=form_buscarProducto&msg=No se pudo modificar");

@@ -48,8 +48,9 @@
 
             $this->_db->desconectar();
             $this->_db->conectar();
-            $consulta = $this->_db->conexion->query("UPDATE productos SET nombre= '$data[0]', grado= '$data[1]', cantidad= '$data[2]', categoria= '$row->idcategoria'  WHERE idproducto='$data[4]'");
+            $consulta = $this->_db->conexion->query("UPDATE productos SET nombre= '$data[0]', grado= '$data[1]', cantidad= '$data[2]', idcategoria= '$row->idcategoria'  WHERE idproducto='$data[4]'");
             $this->_db->desconectar();
+            
             if($consulta)
                 return true;
             else   
