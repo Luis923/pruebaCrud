@@ -13,29 +13,36 @@
         <img class="imageMain" src="images/tienda.jpg" class="img-fluid" alt="tienda">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="formMain col-4 bg-white mt-5 p-4 rounded">
+                <div class="formMain col-4 bg-white mt-3 p-4 rounded ">
                     <p><a href="<?php echo urlsite ?>?page=">Inicio</a></p>
                     <p><a href="<?php echo urlsite ?>?page=productos">Atras</a></p>
                     <h1 class="text-center mb-4">NUEVO PRODUCTO</h1> 
-                    <form action="<?php echo urlsite ?>?page=productos&opcion=insertar" enctype="multipart/form-data" method="post">
+                    <form id="form_insertar"action="<?php echo urlsite ?>?page=productos&opcion=insertar" enctype="multipart/form-data" method="post">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">nombre</label>
-                        <input type="text" class="form-control" name="txtnombre">
+                        <aside class="text-success">* solo letras</aside>
+                        <input type="text" class="form-control" name="txtnombre" id="nombre"  pattern="[a-zA-Z]{2,20}" required autofocus>
                     </div>
                     <div class="mb-3">
                         <label for="grado" class="form-label">grado</label>
-                        <input type="text" class="form-control" name="txtgrado">
+                        <aside class="text-success">* a,b o c</aside>
+                        <input type="text" class="form-control" name="txtgrado" id="grado" maxlength="1" pattern="a|b|c" required >
                     </div>
                     <div class="mb-3">
                         <label for="cantidad" class="form-label">cantidad</label>
-                        <input type="number" class="form-control" name="txtcantidad">
+                        <aside class="text-success">* solo numeros</aside>
+                        <input type="number" class="form-control" name="txtcantidad" id="cantidad"  pattern="/^([0-9])*$/" required>
                     </div>
                     <div class="mb-3">
                         <label for="categoria" class="form-label">categoria</label>
-                        <input type="text" class="form-control" name="txtcategoria">
+                        <select class="form-select" aria-label="Default select example" name="txtcategoria">
+                        <?php foreach($datos as $v): ?>
+                        <option value="<?php echo $v->categoria?>"><?php echo $v->categoria?></option>
+                        <?php endforeach?>
+                        </select>
                     </div>
                     <button type="submit" name="agregar" class="btn btn-primary" value="Agregar">Agregar</button>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>

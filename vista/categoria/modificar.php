@@ -19,12 +19,17 @@
                     <h1 class="text-center mb-4">MODIFICAR CATEGORIA</h1>
                     <form action="<?php echo urlsite ?>?page=categorias&opcion=modificar" enctype="multipart/form-data" method="post">
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">nombre</label>
-                        <input type="text" class="form-control" name="txtnombre">
+                        <label for="categoria" class="form-label">categoria</label>
+                        <select class="form-select" aria-label="Default select example" name="txtnombre">
+                        <?php foreach($datos as $v): ?>
+                        <option value="<?php echo $v->categoria?>"><?php echo $v->categoria?></option>
+                        <?php endforeach?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="txtnuevonombre" class="form-label">nuevo nombre</label>
-                        <input type="text" class="form-control" name="txtnuevonombre">
+                        <aside class="text-success">* solo letras</aside>
+                        <input type="text" class="form-control" name="txtnuevonombre" pattern="[a-zA-Z]{2,20}" required>
                     </div>
                     <button type="submit" name="agregar" class="btn btn-primary" value="Agregar">Modificar</button>
                     </form>

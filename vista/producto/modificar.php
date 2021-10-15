@@ -22,19 +22,26 @@
                     <?php foreach($data as $v): ?>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">nombre</label>
-                        <input type="text" class="form-control" name="txtnombre" placeholder="<?php echo $v->nombre ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cantidad" class="form-label">cantidad</label>
-                        <input type="number" class="form-control" name="txtcantidad" placeholder="<?php echo $v->cantidad ?>">
+                        <aside class="text-success">* solo letras</aside>
+                        <input type="text" class="form-control" name="txtnombre" placeholder="<?php echo $v->nombre ?>" pattern="[a-zA-Z]{2,20}" required autofocus>
                     </div>
                     <div class="mb-3">
                         <label for="grado" class="form-label">grado</label>
-                        <input type="text" class="form-control" name="txtgrado" placeholder="<?php echo $v->grado ?>">
+                        <aside class="text-success">* a,b o c</aside>
+                        <input type="text" class="form-control" name="txtgrado" placeholder="<?php echo $v->grado ?>" pattern="a|b|c" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidad" class="form-label">cantidad</label>
+                        <aside class="text-success">* solo numeros</aside>
+                        <input type="number" class="form-control" name="txtcantidad" placeholder="<?php echo $v->cantidad ?>" pattern="/^([0-9])*$/" required>
                     </div>
                     <div class="mb-3">
                         <label for="categoria" class="form-label">categoria</label>
-                        <input type="text" class="form-control" name="txtcategoria" placeholder="">
+                        <select class="form-select" aria-label="Default select example" name="txtcategoria">
+                        <?php foreach($datos2 as $v2): ?>
+                        <option value="<?php echo $v2->categoria?>"><?php echo $v2->categoria?></option>
+                        <?php endforeach?>
+                        </select>
                     </div>
                     <div class="mb-3 d-none">
                         <label for="idproducto" class="form-label"></label>

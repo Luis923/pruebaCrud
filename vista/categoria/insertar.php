@@ -20,7 +20,8 @@
                     <form action="<?php echo urlsite ?>?page=categorias&opcion=insertar" enctype="multipart/form-data" method="post">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">nombre</label>
-                        <input type="text" class="form-control" name="txtnombre">
+                        <aside class="text-success">* solo letras</aside>
+                        <input type="text" class="form-control" name="txtnombre" pattern="[a-zA-Z]{2,20}" required autofocus>
                     </div>
                     <button type="submit" name="agregar" class="btn btn-primary" value="Agregar">Agregar</button>
                 </form>

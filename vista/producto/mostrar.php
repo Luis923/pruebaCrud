@@ -16,7 +16,18 @@
                 <div class="formMain col-6 bg-white mt-5 p-4 rounded">
                     <p><a href="<?php echo urlsite ?>?page=">Inicio</a></p>
                     <p><a href="<?php echo urlsite ?>?page=productos">Atras</a></p>
-                    <h1 class="text-center mb-4">LISTA DE PRODUCTOS</h1> 
+                    <h1 class="text-center mb-4">LISTA DE PRODUCTOS</h1>
+                    <form action="<?php echo urlsite ?>?page=productos&opcion=filtrar" enctype="multipart/form-data" method="post">
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">categoria</label>
+                        <select class="form-select" aria-label="Default select example" name="txtcategoria">
+                        <?php foreach($datos2 as $v2): ?>
+                        <option value="<?php echo $v2->categoria?>"><?php echo $v2->categoria?></option>
+                        <?php endforeach?>
+                        </select>
+                    </div>
+                    <button type="submit" name="filtrar" class="btn btn-primary" value="Filtrar">Filtrar</button>
+                    </form> 
                     <br>
                     <TABLE class='table'>
                     <THEAD class='table-dark'>

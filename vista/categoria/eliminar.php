@@ -19,8 +19,13 @@
                     <h1 class="text-center mb-4">ELIMINAR CATEGORIA</h1> 
                     <form action="<?php echo urlsite ?>?page=categorias&opcion=eliminar" enctype="multipart/form-data" method="post">
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">categoria</label>
-                        <input type="text" class="form-control" name="txtnombre">
+                        <label for="categoria" class="form-label">categoria</label>
+                        <aside class="text-success">* no puedes eliminar categorias en uso</aside>
+                        <select class="form-select" aria-label="Default select example" name="txtnombre">
+                        <?php foreach($datos as $v): ?>
+                        <option value="<?php echo $v->categoria?>"><?php echo $v->categoria?></option>
+                        <?php endforeach?>
+                        </select>
                     </div>
                     <button type="submit" name="agregar" class="btn btn-primary" value="Agregar">Eliminar</button>
                 </form>

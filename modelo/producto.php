@@ -5,6 +5,15 @@
         public function __construct(){
             $this->_db = new Conexion();
         }
+
+        public function mostrarCantidad(){
+            $this->_db->conectar();
+            $consulta = $this->_db->conexion->prepare("SELECT COUNT(*) FROM productos WHERE idproducto > 0");
+            $consulta -> execute();
+            $this->lista = $consulta->fetchColumn();
+            $this->_db->desconectar();
+            return $this->lista;
+        }
         public function buscar(){
             $this->_db->conectar();
             $consulta = $this->_db->conexion->prepare("SELECT *FROM productos INNER JOIN categorias WHERE productos.idcategoria = categorias.idcategoria");
@@ -15,6 +24,17 @@
             $this->_db->desconectar();
             return $this->lista;
         }
+        public function obtenerCategorias(){
+            $this->_db->conectar();
+            $consulta = $this->_db->conexion->prepare("SELECT *FROM categorias");
+            $consulta -> execute();
+            while($row=$consulta ->fetch(PDO::FETCH_OBJ)){
+                $this->lista[]= $row;
+            }
+            $this->_db->desconectar();
+            return $this->lista;
+        }
+
         public function insertar($data){  
             $this->_db->conectar();
             $consulta = $this->_db->conexion->query("SELECT *FROM  categorias WHERE categoria = '$data[3]'");
@@ -29,6 +49,16 @@
                 return true;
             else   
                 return false;
+        }
+        public function filtrar(){
+            $this->_db->conectar();
+            $consulta = $this->_db->conexion->prepare("SELECT *FROM productos INNER JOIN categorias WHERE productos.idcategoria = categorias.idcategoria");
+            $consulta -> execute();
+            while($row=$consulta ->fetch(PDO::FETCH_OBJ)){
+                $this->lista[]= $row;
+            }
+            $this->_db->desconectar();
+            return $this->lista;
         }
         public function buscarProducto($datos){
             $this->_db->conectar();

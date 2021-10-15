@@ -13,9 +13,13 @@ class CategoriaController{
         require "vista/categoria/mostrar.php";
     }
     public static function form_modificar(){
+        $producto = new Categoria();
+        $datos = $producto->obtenerCategorias();
         require "vista/categoria/modificar.php";
     }
     public static function form_eliminar(){
+        $producto = new Categoria();
+        $datos = $producto->obtenerCategorias();
         require "vista/categoria/eliminar.php";
     }
 

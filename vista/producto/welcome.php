@@ -15,7 +15,8 @@
             <div class="row d-flex justify-content-center">
                 <div class="formMain col-4 bg-white mt-5 p-4 rounded">
                     <p><a href="<?php echo urlsite ?>?page=">Inicio</a></p>
-                    <h1 class="text-center mb-4">PRODUCTOS</h1> 
+                    <h1 class="text-center mb-4">PRODUCTOS</h1>
+                    <p>Cantidad de productos registrados: <?php echo $datos?></p>
                     <div class="mb-3 d-flex justify-content-center">
                         <a class="btn btn-primary" href="<?php echo urlsite ?>?page=productos&opcion=form_insertar" role="button">
                         Nuevo</a>

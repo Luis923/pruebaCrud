@@ -20,7 +20,8 @@
                     <form action="<?php echo urlsite ?>?page=productos&opcion=eliminar" enctype="multipart/form-data" method="post">
                     <div class="mb-3">
                         <label for="producto" class="form-label">producto</label>
-                        <input type="text" class="form-control" name="txtproducto">
+                        <aside class="text-success">* solo letras</aside>
+                        <input type="text" class="form-control" name="txtproducto" pattern="[a-zA-Z]{2,20}" required autofocus>
                     </div>
                     <button type="submit" name="agregar" class="btn btn-primary" value="Agregar">Eliminar</button>
                 </form>
